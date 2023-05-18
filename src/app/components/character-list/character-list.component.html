@@ -1,0 +1,17 @@
+<div class="title">
+    <h1>Rick and Morty API</h1>
+</div>
+
+<div class="main-container">
+    <input type="text" name="search" id="search" placeholder="Search character">
+    <br><br> 
+
+    <div class="char-table">
+        
+        <app-character 
+        *ngFor="let character of tenCharacters"
+        [character]="character">
+        </app-character>
+
+    </div>
+</div>
