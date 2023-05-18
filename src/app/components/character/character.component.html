@@ -1,21 +1,24 @@
 <!-- character card -->
 <div class="card">
-    
+
     <ng-container *ngIf="character != null">
-        <img src="{{character.image}}" alt="img">
-        
+        <div class="col">
+            <img class="img" src="{{character.image}}" alt="img">
+        </div>
     
-        <p>{{character.name}}</p>
-        <p>{{character.status}} - {{character.species}}</p>
-        <p>{{character.gender}}</p>
-        
-        <p>Last know location:
-            {{character.origin['name']}}
-        </p>
-        
-        <p>First seen in:
-            {{character.location['name']}}
-        </p>
+        <div class="col">
+            <h3>{{character.name}}</h3>
+            <p>{{character.status}} - {{character.species}}</p>
+            <p>{{character.gender}}</p>
+            
+            <p>Last know location:
+                {{character.origin['name']}}
+            </p>
+
+            <p>First seen in:
+                {{character.location['name']}}
+            </p>
+        </div>
     </ng-container>
 
 </div>

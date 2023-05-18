@@ -7,7 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class CharacterComponent {
   @Input() character:any = [];
-  //test = "https:" + "//rickandmortyapi.com/api/character/";
 
   constructor(){
     

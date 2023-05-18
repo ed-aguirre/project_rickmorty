@@ -21,6 +21,7 @@ export class CharacterListComponent implements OnInit {
     this.RMApi.getCharacters()
     .subscribe(data => {
       this.allCharacters = data;
+      console.log(this.allCharacters);
       this.allCharacters.results.forEach((element: { results: any; }) => {
         if(this.tenCharacters.length < 10){
           this.tenCharacters.push(element);
