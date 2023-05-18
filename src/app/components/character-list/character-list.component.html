@@ -1,5 +1,5 @@
 <div class="title">
-    <h1>Rick and Morty API</h1>
+    <h1>Rick and Morty API</h1>    
 </div>
 
 <div class="main-container">
@@ -8,12 +8,22 @@
     </div>
     <br><br> 
 
+    <app-pagination 
+        [currentPage]="currentPage"
+        [limit]="limitInPage"
+        [total]="total"
+        (changePage)="changePage($event)"
+    >
+    </app-pagination>
+    <br><br> 
+
     <div class="char-table">
-        
-        <app-character 
-        *ngFor="let character of tenCharacters"
-        [character]="character">
-        </app-character>
+        <ng-container *ngFor="let character of tenCharacters; let i = index">
+            <app-character 
+            *ngIf="i >= limit && i <= limitInPage"
+            [character]="character">
+            </app-character>
+        </ng-container>
 
     </div>
 </div>

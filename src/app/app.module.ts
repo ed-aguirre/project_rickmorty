@@ -4,18 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './components/character/character.component';
 import { CharacterListComponent } from './components/character-list/character-list.component';
+
 import { HttpClientModule } from '@angular/common/http';
 import { RMApiService } from './services/rmapi.service';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [RMApiService],
   bootstrap: [AppComponent]
