@@ -8,6 +8,7 @@ import { CharacterListComponent } from './components/character-list/character-li
 import { HttpClientModule } from '@angular/common/http';
 import { RMApiService } from './services/rmapi.service';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PaginationComponent } from './components/pagination/pagination.componen
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [RMApiService],
   bootstrap: [AppComponent]

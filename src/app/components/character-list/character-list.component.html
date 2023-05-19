@@ -4,26 +4,39 @@
 
 <div class="main-container">
     <div class="div-input">
-        <input class="input" type="text" name="search" id="search" placeholder="Search character">
+        <input class="input" [(ngModel)]="arrayQuery[0]" type="text" name="searchName" id="searchName" placeholder="Search character by Name">
+        <input class="input" [(ngModel)]="arrayQuery[1]" type="text" name="searchStatus" id="searchStatus" placeholder="Search character by Status">
+        <input class="input" [(ngModel)]="arrayQuery[2]" type="text" name="searchSpecies" id="searchSpecies" placeholder="Search character by Species">
+        <input class="input" [(ngModel)]="arrayQuery[3]" type="text" name="searchType" id="searchType" placeholder="Search character by Type">
+        <input class="input" [(ngModel)]="arrayQuery[4]" type="text" name="searchGender" id="searchGender" placeholder="Search character by Gender">
+    </div>
+    <div>
+        <button (click)="filterCharacter()">Search</button>
     </div>
     <br><br> 
 
-    <app-pagination 
+    <ng-container *ngIf="bandera == false; else errorMessage">
+        <app-pagination 
         [currentPage]="currentPage"
         [limit]="limitInPage"
         [total]="total"
         (changePage)="changePage($event)"
-    >
-    </app-pagination>
+        ></app-pagination>
+   
     <br><br> 
 
     <div class="char-table">
         <ng-container *ngFor="let character of tenCharacters; let i = index">
             <app-character 
-            *ngIf="i >= limit && i <= limitInPage"
+            *ngIf="i >= limit && i < limitInPage"
             [character]="character">
             </app-character>
         </ng-container>
 
     </div>
+    </ng-container>
+
+    <ng-template #errorMessage>
+        <h3> No se encontró ningun elemento. Vuelve a intentar y presiona "Search" para volver a cargar! </h3>
+    </ng-template>
 </div>

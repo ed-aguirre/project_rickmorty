@@ -22,6 +22,10 @@ export class RMApiService {
   }
 
   getNextPageCharacters(page:number){
-    return this.http.get(`${this.API_URL}?page=${page}`);
+    return this.http.get(`${this.API_URL}/?page=${page}`);
+  }
+
+  getFilterCharacters(query: string){
+    return this.http.get(`${this.API_URL}/?${query}`)
   }
 }
